@@ -68,6 +68,13 @@ class GameFragment : Fragment() {
             binding.scoreText.text = newScore.toString()
         })
 
+        gameViewModel.eventGameFinished.observe(this, Observer { hasGameFinished ->
+            if (hasGameFinished) {
+                gameFinished()
+                gameViewModel.onGameFinishComplete()
+            }
+        })
+
         return binding.root
 
     }
