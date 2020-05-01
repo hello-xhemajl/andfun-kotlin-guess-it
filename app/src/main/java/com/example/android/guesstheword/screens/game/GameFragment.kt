@@ -54,12 +54,7 @@ class GameFragment : Fragment() {
                 false
         )
 
-        binding.correctButton.setOnClickListener {
-            gameViewModel.onCorrect()
-        }
-        binding.skipButton.setOnClickListener {
-            gameViewModel.onSkip()
-        }
+        binding.gameViewModel = gameViewModel
 
         gameViewModel.word.observe(this, Observer { newWord ->
             binding.wordText.text = newWord
